@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 # udug.sh - UpDate UpGrade.
 # This is a simple script that updates, upgrades and autoremoves.
 # If you wish to prevent a line from executing, then comment it out.
