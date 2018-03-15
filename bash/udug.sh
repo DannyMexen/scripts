@@ -27,7 +27,7 @@ sudo apt list --upgradable -a
 sudo apt upgrade -y
 
 # Step 4. Remove old config files and such
-sudo apt autoremove; sudo apt autoclean; sudo apt clean
+sudo apt autoremove -y; sudo apt autoclean -y; sudo apt clean -y
 
 # Step 5. Exit with status 0
 exit 0
