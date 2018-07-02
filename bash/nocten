@@ -1,0 +1,25 @@
+#!/bin/bash
+# nocten - Network Connectivity Test (NeTCon backwards)
+# Pings a number of hosts and states their reachability status
+
+# Author: Daniel Mwaba Mwale
+# E-mail: daniel.mwale@zamtel.co.zm
+# Date: Thursday, 22nd February, 2018; 09:57AM
+# Version: 1
+
+# Format: nocten [host] ...
+# Example: nocten google.com 10.3.104.175
+#		   This will produce status reports for both google.com and 103.104.175
+
+for HOST in $@
+do
+		ping -c 1 ${HOST}
+		if [ "$?" -eq "0" ]
+		then
+				echo "$HOST IS REACHABLE."
+		else
+				echo "$HOST IS UNREACHABLE."
+				return 1
+		fi
+done
+exit 0

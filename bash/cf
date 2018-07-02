@@ -1,0 +1,37 @@
+#!/bin/bash
+# cf - File Count (fc backwards)
+# Display the number of files in a directory 
+
+# Author: Daniel Mwaba Mwale
+# E-mail: daniel.mwale@zamtel.co.zm
+# Date: Monday, 25th February, 2018; 04:20PM
+# Version: 1
+
+# Format: cf [path/to/directory]
+# Example: cf directory
+#		   This will list the total number of files in directory
+
+function file_count() {
+		local DIR=$1
+		if [ -d "$DIR" ]
+		then
+				local NUMBER_OF_FILES=$(ls ${DIR} | wc -l)
+				echo "${DIR} file count: "
+				echo "$NUMBER_OF_FILES"
+				return 0
+
+		# if no argument is given
+		elif [ -z "$DIR" ]
+		then
+				local NUMBER_OF_FILES=$(ls ./ | wc -l)
+				echo "Current directory file count: "
+				echo "$NUMBER_OF_FILES"
+				return 0
+
+		else
+				echo "Missing or non-directory given."
+				exit 1
+		fi
+}
+
+file_count $1
