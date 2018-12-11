@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# create bash executables
+# usage: cre8 [file name]
+# author: arcarius
+# date: 12 December 2018, Tuesday
+# version: 1
+
+FILE=$1
+
+create_bash_file () {
+		
+		# create the file
+		touch $FILE
+
+		# make the file executable
+		chmod 755 $FILE
+
+		# define the interpreter
+		echo '#!/bin/bash' > $FILE
+
+		# additional information
+		echo "# $FILE: [description here]" >> $FILE
+		echo "# Usage: [description here]" >> $FILE
+		echo "# Author: arcarius" >> $FILE
+		echo "# Date: $(date)" >> $FILE
+		echo "# Version: 1.0" >> $FILE
+		echo >> $FILE
+		
+		# open the file for editing
+		vi  + $FILE
+}
+
+# check if the name is free
+if [[ -e "$FILE" ]]; then
+		echo 'That filename is already in use. Re-run cre8.'
+		exit 1
+else
+		create_bash_file
+fi
