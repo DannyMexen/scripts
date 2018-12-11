@@ -6,6 +6,8 @@
 # date: 12 December 2018, Tuesday
 # version: 1
 # umidasu is a Japanese terminology for "create"
+# meta is meta
+# put the two together and you get metamidasu
 
 FILE=$1
 
