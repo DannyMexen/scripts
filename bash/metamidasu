@@ -34,7 +34,7 @@ create_bash_file () {
 		vi  + $FILE
 }
 
-# check if the name is free
+# check if the name is free, if it is not, then inform user to re-run
 if [[ -e "$FILE" ]]; then
 		echo 'That filename is already in use. Re-run cre8.'
 		exit 1
