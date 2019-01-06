@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# create python executables
+# usage: umidasu-py [file name]
+# author: arcarius
+# date: 06 January 2019, Sunday
+# version: 1
+# umidasu is a Japanese terminology for "create"
+# meta is meta
+# put the two together and you get metamidasu
+
+FILE=$1.py
+
+create_python_file () {
+		
+		# create the file
+		touch $FILE
+
+		# make the file executable
+		chmod +x $FILE
+
+		# define the interpreter
+		echo '#!/usr/bin/python3' > $FILE
+
+		# additional information
+		echo "# $FILE: [description here]" >> $FILE
+		echo "# Usage: [description here]" >> $FILE
+		echo "# Author: arcarius" >> $FILE
+		echo "# Date: $(date)" >> $FILE
+		echo "# Version: 1.0" >> $FILE
+		echo >> $FILE
+		
+		# open the file for editing
+		vi +startinsert + $FILE
+}
+
+# check if the name is free, if it is not, then inform user to re-run
+if [[ -e "$FILE" ]]; then
+		echo 'That filename is already in use. Re-run umidasu-py.'
+		exit 1
+else
+		create_python_file
+fi
