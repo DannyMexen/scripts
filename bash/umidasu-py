@@ -31,7 +31,7 @@ create_python_file () {
 		echo >> $FILE
 		
 		# open the file for editing
-		vi +startinsert + $FILE
+		vim +startinsert + $FILE
 }
 
 # check if the name is free, if it is not, then inform user to re-run
