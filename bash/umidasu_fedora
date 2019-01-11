@@ -20,7 +20,7 @@ create_bash_file () {
 		chmod 755 $FILE
 
 		# define the interpreter
-		echo '#!/bin/bash' > $FILE
+		echo '#!/usr/bin/bash' > $FILE
 
 		# additional information
 		echo "# $FILE: [description here]" >> $FILE
