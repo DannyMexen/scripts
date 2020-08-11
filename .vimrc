@@ -1,6 +1,116 @@
 " vi compatibility off
 set nocompatible
 
+filetype off
+
+" Vundle runtime path
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" PLUGINS
+" Vundleception
+Plugin 'Vundle/Vundle.vim'
+
+" Airline
+Plugin 'vim-airline/vim-airline'
+
+" Airline Themes
+Plugin 'vim-airline/vim-airline-themes'
+let g:airline_powerline_fonts = 1
+let g:airline_theme='dark'
+
+" NERDTree
+Plugin 'scrooloose/nerdtree'
+" Automatically open NERDTree when vim starts up
+
+autocmd vimenter * NERDTree
+" Switch between different windows by their direction`
+no <C-j> <C-w>j|
+no <C-k> <C-w>k|
+no <C-l> <C-w>l|
+no <C-h> <C-w>h|
+
+"Close vim if only one window is left open
+autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Elixir
+Plugin 'elixir-lang/vim-elixir'
+
+" Vim-Tmux Navigator
+Plugin 'christoomey/vim-tmux-navigator'
+
+" Fugitive
+Plugin 'tpope/vim-fugitive'
+
+" Auto Pairs
+Plugin 'jiangmiao/auto-pairs'
+
+" Surround.Vim
+Plugin 'tpope/vim-surround'
+
+" Indent Guides
+Plugin 'nathanaelkane/vim-indent-guides'
+
+" Rainbow Parenthesis
+Plugin 'kien/rainbow_parentheses.vim'
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
+" Always on
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+" C
+Plugin 'c.vim'
+
+" YouCompleteMe
+Plugin 'valloric/youcompleteme'
+
+" Emmet
+Plugin 'mattn/emmet-vim'
+
+" Projectionist
+Plugin 'tpope/vim-projectionist'
+
+" Phoenix
+Plugin 'avdgaag/vim-phoenix'
+
+" UltiSnips
+Plugin 'sirver/ultisnips'
+
+" Commentary
+Plugin 'tpope/vim-commentary' 
+autocmd FileType elixir setlocal commentstring=#\ %s
+
+" The NERD Commenter
+Plugin 'scrooloose/nerdcommenter'
+
+" Easy Motion
+Plugin 'easymotion/vim-easymotion'
+
+" End of Vundle
+call vundle#end()
+
+filetype plugin indent on
+
 " show file stats
 set ruler
 
@@ -33,9 +143,6 @@ set showcmd
 " highlight current line
 set cursorline
 
-" load filetype-specific indent files
-filetype indent plugin on
-
 " visual autocomplete for command menu
 set wildmenu
 
@@ -53,6 +160,3 @@ set mouse=a
 
 " use clipboard as the default register
 set clipboard=unnamed
-
-" CtrlP
-set runtimepath^=~/.vim/bundle/ctrlp.vim
