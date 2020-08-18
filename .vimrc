@@ -106,6 +106,9 @@ Plugin 'scrooloose/nerdcommenter'
 " Easy Motion
 Plugin 'easymotion/vim-easymotion'
 
+" Vimwiki
+Plugin 'vimwiki/vimwiki'
+
 " End of Vundle
 call vundle#end()
 
