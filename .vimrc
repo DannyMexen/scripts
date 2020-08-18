@@ -49,6 +49,7 @@ Plugin 'tpope/vim-surround'
 
 " Indent Guides
 Plugin 'nathanaelkane/vim-indent-guides'
+let g:indent_guides_enable_on_vim_startup = 1
 
 " Rainbow Parenthesis
 Plugin 'kien/rainbow_parentheses.vim'
