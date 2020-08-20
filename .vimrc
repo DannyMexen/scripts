@@ -4,7 +4,8 @@ set nocompatible
 filetype off
 
 " Vundle runtime path
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim,~/.vim,~/.vim/after,/usr/share/vim/vimfiles,/usr/share/vim/vimfiles/after
+
 call vundle#begin()
 " PLUGINS
 " Vundleception
@@ -21,14 +22,12 @@ let g:airline_theme='dark'
 " NERDTree
 Plugin 'scrooloose/nerdtree'
 " Automatically open NERDTree when vim starts up
-
 autocmd vimenter * NERDTree
 " Switch between different windows by their direction`
 no <C-j> <C-w>j|
 no <C-k> <C-w>k|
 no <C-l> <C-w>l|
 no <C-h> <C-w>h|
-
 "Close vim if only one window is left open
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
@@ -51,7 +50,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
+let g:indent_guides_guide_size = 2
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
@@ -114,11 +113,19 @@ Plugin 'easymotion/vim-easymotion'
 
 " Vimwiki
 Plugin 'vimwiki/vimwiki'
+" Headers
+hi link VimwikiHeader1 level6c
+hi link VimwikiHeader2 level5c
+hi link VimwikiHeader3 level2c
 
 " End of Vundle
 call vundle#end()
 
 filetype plugin indent on
+
+" latex
+set grepprg=grep\ -nH\ $*
+let g:tex_flavor = "latex"
 
 " show file stats
 set ruler
